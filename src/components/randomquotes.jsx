@@ -13,7 +13,7 @@ function Randomquotes() {
   const [color,setColor] = useState(`rgba(0, 0, 0, 1)`)
   const isMobile = window.innerWidth <= 768;
 
-  const url = 'https://api.quotable.io/quotes/random'
+  const url = 'https://api.quotable.io/quotes/random' //only api
 
   const randomColor = () =>{
                   const r = Math.floor(Math.random() * 160)
