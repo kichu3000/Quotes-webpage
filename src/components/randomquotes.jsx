@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function Randomquotes() {
 
-  
+
   const [quotes,setQuotes] = useState({
     'quote' : 'Do what you can, where you are, with what you have.',
     'author' : 'Teddy Roosevelt'
@@ -27,7 +27,7 @@ function Randomquotes() {
           document.body.style.backgroundColor = newcolor;
 
           // if(isMobile){
-              const response = await axios.get('/Quotes-webpage/quotes.json');
+              const response = await axios.get('/quotes.json');
               console.log(response.data);
               const data = response.data;
               const randomIndex = Math.floor(Math.random() * data.length);
