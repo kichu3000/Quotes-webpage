@@ -3,17 +3,15 @@ import './randomquotes.css'
 import { FaQuoteLeft , FaQuoteRight ,FaTwitter} from "react-icons/fa6";
 import axios from 'axios';
 
-
 function Randomquotes() {
 
+  
   const [quotes,setQuotes] = useState({
     'quote' : 'Do what you can, where you are, with what you have.',
     'author' : 'Teddy Roosevelt'
   })
   const [color,setColor] = useState(`rgba(0, 0, 0, 1)`)
-  const isMobile = window.innerWidth <= 768;
-
-  const url = 'https://api.quotable.io/quotes/random' //only api
+  // const isMobile = window.innerWidth <= 768;
 
   const randomColor = () =>{
                   const r = Math.floor(Math.random() * 160)
@@ -28,7 +26,7 @@ function Randomquotes() {
           setColor(newcolor);
           document.body.style.backgroundColor = newcolor;
 
-          if(isMobile){
+          // if(isMobile){
               const response = await axios.get('/Quotes-webpage/quotes.json');
               console.log(response.data);
               const data = response.data;
@@ -41,20 +39,19 @@ function Randomquotes() {
                 'author' : localQuote.author
               })
 
-          }
-          else{
-              const response = await axios.get(url);
-              console.log(response.data[0]);
-              const data = response.data[0];
-              setQuotes({
-                'quote' : data.content,
-                'author' : data.author
-              })
+          // }
+          // else{
+          //     const response = await axios.get(url);
+          //     console.log(response.data[0]);
+          //     const data = response.data[0];
+          //     setQuotes({
+          //       'quote' : data.content,
+          //       'author' : data.author
+          //     })
 
               // if (typeof document !== "undefined" && document.body) {
               // document.body.style.backgroundColor = newcolor;
               // }
-            }
           
   }
 
