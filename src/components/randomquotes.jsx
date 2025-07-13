@@ -27,7 +27,7 @@ function Randomquotes() {
           document.body.style.backgroundColor = newcolor;
 
           // if(isMobile){
-              const response = await axios.get('/quotes.json');
+              const response = await axios.get('/Quotes-webpage/quotes.json');
               console.log(response.data);
               const data = response.data;
               const randomIndex = Math.floor(Math.random() * data.length);
