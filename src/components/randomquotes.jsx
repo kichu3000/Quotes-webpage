@@ -65,40 +65,42 @@ const fetchData = async () =>{
 
   return (
     <div>
-      <div className="container">
-        <div className='quotes'>
-            <div style={{ fontWeight: "bold", fontSize: "1.2rem", display: "inline", alignItems: "flex-start", flexWrap: "wrap" }}>
-                <FaQuoteLeft
-                  size="32"
-                  style={{
-                    marginRight: "10px",color: "#000",flexShrink: 0, }}
-                />
-                <p className='heading' style={{ color: color }}>
-                  {quotes.quote}
-                </p>
-                <FaQuoteRight
-                  size="32"
-                  style={{ marginLeft: "10px", color: "#000", flexShrink: 0 }}
-                />
-            </div>
-            <h4  style={{ color: color }}>
-              - {quotes.author}
-            </h4>
-        </div>
-        <div className="buttons">
-            <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(` ${quotes.quote} -${quotes.author}`)}`}
-                className="twitter" 
-                style={{ backgroundColor: color }}
-                target="_blank"
-                rel="noopener noreferrer">
-                <FaTwitter/>
-              </a>
-            <button 
-              className="next-quote"
-              style= {{ backgroundColor: color }}
-              onClick={fetchData}
-            >Change Quote</button>
+      <div className="wrapper">
+        <div className="container">
+          <div className='quotes'>
+              <div style={{ fontWeight: "bold", fontSize: "1.2rem", display: "inline", alignItems: "flex-start", flexWrap: "wrap" }}>
+                  <FaQuoteLeft
+                    size="32"
+                    style={{
+                      marginRight: "10px",color: "#000",flexShrink: 0, }}
+                  />
+                  <p className='heading' style={{ color: color }}>
+                    {quotes.quote}
+                  </p>
+                  <FaQuoteRight
+                    size="32"
+                    style={{ marginLeft: "10px", color: "#000", flexShrink: 0 }}
+                  />
+              </div>
+              <h4  style={{ color: color }}>
+                - {quotes.author}
+              </h4>
+          </div>
+          <div className="buttons">
+              <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(` ${quotes.quote} -${quotes.author}`)}`}
+                  className="twitter" 
+                  style={{ backgroundColor: color }}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <FaTwitter/>
+                </a>
+              <button 
+                className="next-quote"
+                style= {{ backgroundColor: color }}
+                onClick={fetchData}
+              >Change Quote</button>
+          </div>
         </div>
       </div>
     </div>

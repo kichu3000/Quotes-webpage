@@ -1,14 +1,9 @@
-body{
-    font-family: 'Montserrat', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+body {
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     background-color: rgb(95, 145, 128);
+    font-family: 'Montserrat', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     transition: background-color 0.8s;
-
 }
 .quotes{
     height: 220px;
@@ -20,7 +15,7 @@ body{
 
 .container{
     width: 32rem;
-    min-height: 19rem;
+    min-height: 20rem;
     background-color: rgb(245, 250, 255);
     display: flex;
     flex-direction: column;
@@ -30,6 +25,8 @@ body{
     letter-spacing: 0.4px;
     line-height: 1.5;
     box-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.62); 
+
+    max-width: 32rem;
 }
 h4{
     text-align: right;
@@ -64,4 +61,14 @@ button , a{
 }
 .twitter{
     top:10px
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
 }
