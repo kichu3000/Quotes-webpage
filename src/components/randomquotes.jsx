@@ -8,33 +8,53 @@ const [quotes,setQuotes] = useState({
   'quote' : 'Do what you can, where you are, with what you have.',
   'author' : 'Teddy Roosevelt'
 })
-const [color,setColor] = useState(`rgb(0,0,0)`)
+const [color,setColor] = useState(`rgba(0, 0, 0, 1)`)
+const isMobile = window.innerWidth <= 768;
 
+const url = 'https://thingproxy.freeboard.io/fetch/https://api.quotable.io/quotes/random'
 
-    const fetchData = async () =>{
-      const response = await axios.get('https://api.quotable.io/quotes/random');
-      console.log(response.data[0]);
-      setQuotes({
-        'quote' : response.data[0].content,
-        'author' : response.data[0].author
-      })
-        const randomColor = () =>{
-          const r = Math.floor(Math.random() * 160)
-          const g = Math.floor(Math.random() * 160)
-          const b = Math.floor(Math.random() * 156)
-          return `rgb(${r},${g},${b})`
-      }
-      console.log(randomColor());
-      const newcolor = randomColor();
-      setColor(newcolor);
+const randomColor = () =>{
+                const r = Math.floor(Math.random() * 160)
+                const g = Math.floor(Math.random() * 160)
+                const b = Math.floor(Math.random() * 156)
+                return `rgb(${r},${g},${b})`
+            }
 
-      // if (typeof document !== "undefined" && document.body) {
-      // document.body.style.backgroundColor = newcolor;
-      // }
-      document.body.style.backgroundColor = newcolor;
+const fetchData = async () =>{
 
-      
-    }
+        const newcolor = randomColor();
+        setColor(newcolor);
+        document.body.style.backgroundColor = newcolor;
+
+        if(isMobile){
+            const response = await axios.get('/Quotes-webpage/quotes.json');
+            console.log(response.data);
+            const data = response.data;
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const localQuote = data[randomIndex];
+            console.log(localQuote);
+            
+            setQuotes({
+              'quote' : localQuote.quote,
+              'author' : localQuote.author
+            })
+
+        }
+        else{
+            const response = await axios.get(url);
+            console.log(response.data[0]);
+            const data = response.data[0];
+            setQuotes({
+              'quote' : data.content,
+              'author' : data.author
+            })
+
+            // if (typeof document !== "undefined" && document.body) {
+            // document.body.style.backgroundColor = newcolor;
+            // }
+          }
+        
+}
 
     
 
