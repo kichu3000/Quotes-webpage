@@ -21,7 +21,8 @@ A simple random quote generator built using **React.js** and **Vite**.
 
 ## 🖼️ Screenshot
 
-![Screenshot](./screenshot.png)
+![Screenshot](./screenshots/screenshot1.png)
+![Screenshot](./screenshots/screenshot2.png)
 
 ---
 
